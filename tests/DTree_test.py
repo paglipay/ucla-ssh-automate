@@ -6,7 +6,7 @@ import_obj_instance_hash = {}
 
 class Testing(unittest.TestCase):
 
-    def test_start(self):
+    def test_key(self):
 
         json_file = './jobs/start.json'
         flask_data = {}

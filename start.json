@@ -1,0 +1,33 @@
+[
+    {"import": "Key"},
+    {"True": "Hello"},
+    {"True": "World"},
+    {"import": "Key"},
+    {"True": "BAD"},
+    {"True": "GOOD"},
+    {"False": [
+        {"True": "2BAD"},
+        {"True": "2GOOD"}
+        ]},
+    {"True": [
+        {"True": "3BAD"},
+        {"True": "3GOOD"}
+        ]},
+    {"True": "GOOD"},
+    
+    {"import": "Key"},
+    {"True": "Hello"},
+    {"True": "World"},
+    {"import": "Key"},
+    {"True": "BAD"},
+    {"True": "GOOD"},
+    {"False": [
+        {"True": "2BAD"},
+        {"True": "2GOOD"}
+        ]},
+    {"True": [
+        {"True": "3BAD"},
+        {"True": "3GOOD"}
+        ]},
+    {"True": "GOOD"}
+]

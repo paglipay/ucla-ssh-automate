@@ -11,7 +11,7 @@ class DTree:
         self.current_module_name = current_module_name
         self.data = data
         self.bol = False
-        sys.path.append('./my_packages')
+        sys.path.append('./components')
         self.begin_process(self.config)
 
     def init_import_obj(self, module_name):

@@ -19,25 +19,61 @@ print(sys.getrecursionlimit())
 sys.setrecursionlimit(10**6)
 print(sys.getrecursionlimit())
 
-class Person:
-    name = []
+flask_thread = []
+flask_process_data = {}
+flask_process = {}
+import_obj_instance_hash = {}
+app = Flask(__name__)
 
-    def set_name(self, user_name):
-        self.name.append(user_name)
-        return len(self.name) - 1
+@app.route('/')
+def hello_world():
+    return 'Hello World! From ' + socket.gethostname()
 
-    def get_name(self, user_id):
-        if user_id >= len(self.name):
-            return 'There is no such user'
-        else:
-            return self.name[user_id]
+@app.route('/process_data')
+def process_data():
+    return jsonify(flask_process_data), 200
 
+def do_process(flask_data, json_file, import_obj_instance):
+    if '.json' in json_file:
+        c = DTree.DTree(json.load(open(json_file)), name=json_file,
+                        import_obj_instance=import_obj_instance, data=flask_data)
+    else:
+        c = DTree.DTree(json_file, name=uuid.uuid1(),
+                        import_obj_instance=import_obj_instance, data=flask_data)
+
+@app.route('/start/<hash>', methods=['GET', 'POST'])
+def start(hash):
+    # name = names[hash]
+    name = hash
+    d = {}
+    if request.method == 'POST':
+        data = request.get_json()
+        print('data: ', data)
+        if 'jobs' in data:
+            name = data.pop('jobs')
+        d = data
+    print('d: ', d)
+    if hash in flask_process_data:
+        flask_process_data[hash].update(d)
+        import_obj_instance = import_obj_instance_hash[hash]
+
+    else:
+        print('NEW HASH: ', hash)
+        flask_process_data[hash] = d
+        import_obj_instance_hash[hash] = {}
+        import_obj_instance = import_obj_instance_hash[hash]
+
+    d = flask_process_data[hash]
+    thread = threading.Thread(
+        target=do_process, args=(d, name, import_obj_instance,))
+    flask_process[hash] = thread
+    thread.daemon = False
+    thread.start()
+    thread.join()
+
+    d['uuid'] = hash
+
+    return jsonify(d), 200
 
 if __name__ == '__main__':
-    person = Person()
-    print('User Abbas has been added with id ', person.set_name('Abbas'))
-    print('User associated with id 0 is ', person.get_name(0))
-
-# if __name__ == '__main__':
-#     excel.init_excel(app)
-#     app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0')

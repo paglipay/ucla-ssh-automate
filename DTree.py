@@ -27,7 +27,7 @@ class DTree:
         self.bol = self.process(config)
 
     def k_process(self, config, v_val):
-        # print('k_process: ', config, v_val)
+        print('k_process: ', config, v_val)
         if '.json' in config:
             return DTree(json.load(open(config)), config, self.import_obj_instance, self.current_module_name, self.data).bol
         elif '.yml' in config:

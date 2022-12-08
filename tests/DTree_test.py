@@ -5,19 +5,10 @@ import json
 import_obj_instance_hash = {}
 
 class Testing(unittest.TestCase):
-    def test_string(self):
-        a = 'some'
-        b = 'some'
-        self.assertEqual(a, b)
-
-    def test_boolean(self):
-        a = True
-        b = True
-        self.assertEqual(a, b)
 
     def test_start(self):
 
-        json_file = './start.json'
+        json_file = './jobs/start.json'
         flask_data = {}
         import_obj_instance = {}
         c = DTree.DTree(json.load(open(json_file)), name=json_file,

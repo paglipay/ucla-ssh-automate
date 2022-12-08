@@ -1,0 +1,21 @@
+{
+  "True": [
+    {
+      "import": "Paramiko"
+    },
+    {
+      "open": {
+        "ip": "corp.paglipay.info",
+        "username": "vagrant",
+        "password": "vagrant",
+        "port": 2222
+      }
+    },
+    {
+      "True": ["pwd"]
+    },
+    {
+      "True": "exit"
+    }
+  ]
+}

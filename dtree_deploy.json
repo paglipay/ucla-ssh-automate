@@ -1,0 +1,59 @@
+{
+    "jobs": [
+        {
+            "import": "Key"
+        },
+        {
+            "True": [
+                {
+                    "import": "RequestsObj"
+                },
+                {
+                    "open": {
+                        "ip": "http://corp.paglipay.info:5003/start",
+                        "jobs": [
+                            {
+                                "import": "Key"
+                            },
+                            {
+                                "True": [
+                                    {
+                                        "import": "ParamikoObj"
+                                    },
+                                    {
+                                        "open": {
+                                            "ip": "192.168.0.11",
+                                            "username": "paul",
+                                            "password": "P@ssw0rd"
+                                        }
+                                    },
+                                    {
+                                        "True": "pwd"
+                                    },
+                                    {
+                                        "not':~$": "./json/paramiko/wait_till.json"
+                                    },
+                                    {
+                                        "True": "sudo docker service rm dtree-test && sudo docker service create  --name=dtree-test -p 5005:5000  192.168.0.11:5000/dtree-test:latest"
+                                    },
+                                    {
+                                        "password": "P@ssw0rd"
+                                    },
+                                    {
+                                        "not':~$": "./json/paramiko/wait_till.json"
+                                    },
+                                    {
+                                        "True": "exit"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "True": "end"
+                }
+            ]
+        }
+    ]
+}

@@ -5,12 +5,13 @@ services:
     image: 192.168.0.11:5000/ucla-ssh:latest
     build: .
     ports:
-      - "8088:8000"
+      - "5006:5000"
   openssh-server:
     image: lscr.io/linuxserver/openssh-server:latest
-    port: 2222:2222
+    ports: 
+      - "2222:2222"
     environment:
       USER_NAME: vagrant
       USER_PASSWORD: vagrant
-      SUDO_ACCESS: true
-      PASSWORD_ACCESS: true
+      # SUDO_ACCESS: true
+      # PASSWORD_ACCESS: true

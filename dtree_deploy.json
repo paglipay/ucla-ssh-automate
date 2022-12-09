@@ -29,7 +29,7 @@
                                     },
                                     "pwd",
                                     {
-                                        "True": [
+                                        "False": [
                                             "sudo docker service ls",
                                             {
                                                 "password": "P@ssw0rd"

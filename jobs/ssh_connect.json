@@ -5,7 +5,7 @@
     },
     {
       "open": {
-        "ip": "corp.paglipay.info",
+        "ip": "openssh-server",
         "username": "vagrant",
         "password": "vagrant",
         "port": 2222

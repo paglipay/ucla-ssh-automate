@@ -3,16 +3,11 @@
     {
       "import": "Paramiko"
     },
+    "./jobs/open/do.json",
     {
-      "open": {
-        "ip": "openssh-server",
-        "username": "vagrant",
-        "password": "vagrant",
-        "port": 2222
-      }
-    },
-    {
-      "True": ["pwd && ifconfig"]
+      "True": [
+        "pwd && ifconfig"
+      ]
     },
     {
       "True": "exit"

@@ -1,33 +1,16 @@
 [
-  {"import": "Key"},
-  {"True": "Hello"},
-  {"True": "World"},
-  {"import": "Key"},
-  {"True": "BAD"},
-  {"True": "GOOD"},
-  {"False": [
-      {"True": "2BAD"},
-      {"True": "2GOOD"}
-      ]},
-  {"True": [
-      {"True": "3BAD"},
-      {"True": "3GOOD"}
-      ]},
-  {"True": "GOOD"},
-  
-  {"import": "Key"},
-  {"True": "Hello"},
-  {"True": "World"},
-  {"import": "Key"},
-  {"True": "BAD"},
-  {"True": "GOOD"},
-  {"False": [
-      {"True": "2BAD"},
-      {"True": "2GOOD"}
-      ]},
-  {"True": [
-      {"True": "3BAD"},
-      {"True": "3GOOD"}
-      ]},
-  {"True": "GOOD"}
+  { "import": "Jinja" },
+  {
+    "True": [
+      {
+        "list_dics": "./jobs/jinja_test/list.txt"
+      },
+      {
+        "open": "./jobs/jinja_test/_accept_list.txt"
+      },
+      {
+        "save_as": "./jobs/jinja_test/list.json"
+      }
+    ]
+  }
 ]

@@ -12,7 +12,7 @@
       }
     },
     {
-      "True": ["pwd"]
+      "True": ["pwd && ifconfig"]
     },
     {
       "True": "exit"

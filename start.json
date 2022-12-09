@@ -1,4 +1,5 @@
 [
     {"import": "Key"},
-    {"True": "./jobs/ssh_connect.json"}
+    {"False": "./jobs/ssh_connect.json"},
+    {"True": "./jobs/jinja_test/jinja_test.json"}
 ]

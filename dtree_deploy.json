@@ -29,6 +29,9 @@
                                     },
                                     "pwd",
                                     {
+                                        "not':~$": "./json/paramiko/wait_till.json"
+                                    },
+                                    {
                                         "False": [
                                             "sudo docker service ls",
                                             {

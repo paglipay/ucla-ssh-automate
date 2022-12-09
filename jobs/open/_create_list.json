@@ -1,6 +1,6 @@
 [
     {
-        "import": "JinjaObj"
+        "import": "Jinja"
     },
     {
         "True": [

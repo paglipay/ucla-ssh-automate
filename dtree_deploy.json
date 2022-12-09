@@ -1,0 +1,74 @@
+{
+    "jobs": [
+        {
+            "import": "Key"
+        },
+        {
+            "True": [
+                {
+                    "import": "RequestsObj"
+                },
+                {
+                    "open": {
+                        "ip": "http://corp.paglipay.info:5003/start",
+                        "jobs": [
+                            {
+                                "import": "Key"
+                            },
+                            {
+                                "True": [
+                                    {
+                                        "import": "ParamikoObj"
+                                    },
+                                    {
+                                        "open": {
+                                            "ip": "192.168.0.11",
+                                            "username": "paul",
+                                            "password": "P@ssw0rd"
+                                        }
+                                    },
+                                    {
+                                        "True": [
+                                            "sudo docker service ls",
+                                            {
+                                                "password": "P@ssw0rd"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "not':~$": "./json/paramiko/wait_till.json"
+                                    },
+                                    {
+                                        "ucla-ssh": [
+                                            "sudo docker service rm ucla-ssh",
+                                            {
+                                                "password": "P@ssw0rd"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "True": [
+                                            "sudo docker service create  --name=ucla-ssh -p 5006:5000  192.168.0.11:5000/ucla-ssh:latest",
+                                            {
+                                                "password": "P@ssw0rd"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "not':~$": "./json/paramiko/wait_till.json"
+                                    },
+                                    {
+                                        "True": "exit"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "True": "end"
+                }
+            ]
+        }
+    ]
+}

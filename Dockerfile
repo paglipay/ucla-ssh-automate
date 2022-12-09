@@ -1,20 +1,11 @@
 FROM python:3.10.9
-ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app/
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-RUN python -m venv /opt/venv
-# Enable venv
-ENV PATH="/opt/venv/bin:$PATH"
+COPY requirements.txt /usr/src/app/
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ./requirements.txt /app/requirements.txt
-RUN pip install -Ur requirements.txt
+COPY . /usr/src/app
 
-FROM python:3.9-slim as runner
-WORKDIR /app/
-COPY --from=compiler /opt/venv /opt/venv
-
-# Enable venv
-ENV PATH="/opt/venv/bin:$PATH"
-COPY . /app/
-CMD ["python", "app.py", ]
+CMD [ "python", "./app.py" ]

@@ -34,7 +34,7 @@
                                         "not':~$": "./json/paramiko/wait_till.json"
                                     },
                                     {
-                                        "True": "sudo docker service rm ucla-ssh && sudo docker service create  --name=ucla-ssh -p 5006:5000  192.168.0.11:5000/ucla-ssh:latest"
+                                        "True": "sudo docker service create  --name=ucla-ssh -p 5006:5000  192.168.0.11:5000/ucla-ssh:latest"
                                     },
                                     {
                                         "password": "P@ssw0rd"

@@ -27,22 +27,26 @@
                                             "password": "P@ssw0rd"
                                         }
                                     },
+                                    "pwd",
                                     {
                                         "True": [
                                             "sudo docker service ls",
                                             {
                                                 "password": "P@ssw0rd"
+                                            },
+                                            {
+                                                "not':~$": "./json/paramiko/wait_till.json"
                                             }
                                         ]
-                                    },
-                                    {
-                                        "not':~$": "./json/paramiko/wait_till.json"
                                     },
                                     {
                                         "False": [
                                             "sudo docker service rm ucla-ssh",
                                             {
                                                 "password": "P@ssw0rd"
+                                            },
+                                            {
+                                                "not':~$": "./json/paramiko/wait_till.json"
                                             }
                                         ]
                                     },
@@ -51,6 +55,9 @@
                                             "sudo docker service create  --name=ucla-ssh -p 5006:5000  192.168.0.11:5000/ucla-ssh:latest",
                                             {
                                                 "password": "P@ssw0rd"
+                                            },
+                                            {
+                                                "not':~$": "./json/paramiko/wait_till.json"
                                             }
                                         ]
                                     },
@@ -59,11 +66,11 @@
                                             "sudo docker stack deploy --compose-file docker-compose.yml ucla_ssh",
                                             {
                                                 "password": "P@ssw0rd"
+                                            },
+                                            {
+                                                "not':~$": "./json/paramiko/wait_till.json"
                                             }
                                         ]
-                                    },
-                                    {
-                                        "not':~$": "./json/paramiko/wait_till.json"
                                     },
                                     {
                                         "True": "exit"

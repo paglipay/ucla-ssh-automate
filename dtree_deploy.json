@@ -47,8 +47,16 @@
                                         ]
                                     },
                                     {
-                                        "True": [
+                                        "False": [
                                             "sudo docker service create  --name=ucla-ssh -p 5006:5000  192.168.0.11:5000/ucla-ssh:latest",
+                                            {
+                                                "password": "P@ssw0rd"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "True": [
+                                            "docker stack deploy --compose-file docker-compose.yml ucla_ssh",
                                             {
                                                 "password": "P@ssw0rd"
                                             }

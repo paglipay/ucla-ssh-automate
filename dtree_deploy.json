@@ -27,7 +27,13 @@
                                             "password": "P@ssw0rd"
                                         }
                                     },
+                                    {
+                                        "wait": 3
+                                    },
                                     "pwd",
+                                    {
+                                        "wait": 1
+                                    },
                                     {
                                         "not':~$": "./json/paramiko/wait_till.json"
                                     },

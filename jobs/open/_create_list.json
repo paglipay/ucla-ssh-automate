@@ -1,0 +1,18 @@
+[
+    {
+        "import": "JinjaObj"
+    },
+    {
+        "True": [
+            {
+                "list_dics": "./jobs/open/form_dic.json"
+            },
+            {
+                "open": "./jobs/open/_accepts_dic.txt"
+            },
+            {
+                "save_as": "./jobs/open/do.json"
+            }
+        ]
+    }
+]

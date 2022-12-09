@@ -22,12 +22,12 @@
                                     },
                                     {
                                         "open": {
-                                            "ip": "192.168.0.11",
+                                            "ip": "192.168.0.12",
                                             "username": "paul",
                                             "password": "P@ssw0rd"
                                         }
                                     },
-                                    "sudo docker stack deploy --compose-file docker-compose.yml ucla_ssh",
+                                    "pwd",
                                     {
                                         "False": [
                                             "sudo docker service ls",
@@ -62,8 +62,8 @@
                                         ]
                                     },
                                     {
-                                        "False": [
-                                            "sudo docker stack deploy --compose-file docker-compose.yml ucla_ssh",
+                                        "True": [
+                                            "cd /home/paul/Documents/Projects/workspace/ucla-ssh && sudo docker stack deploy --compose-file docker-compose.yml ucla_ssh",
                                             {
                                                 "password": "P@ssw0rd"
                                             },

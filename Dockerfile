@@ -1,6 +1,5 @@
 FROM python:3.10.9
 
-RUN apt-get update && apt-get install -y zbar-tools ffmpeg libsm6 libxext6
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 

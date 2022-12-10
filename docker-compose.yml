@@ -42,3 +42,13 @@ services:
     shm_size: "2gb" #optional
     restart: unless-stopped
     privileged: true
+  code-server8443:
+    image: linuxserver/code-server
+    environment:
+      - PROXY_DOMAIN=corp.paglipay.info
+      - PASSWORD=P@55w0rd
+      - SUDO_PASSWORD=P@55w0rd
+    ports:
+      - "8443:8443"
+    volumes:
+      - /nfs/code-server8443:/config

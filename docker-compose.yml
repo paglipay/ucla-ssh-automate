@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   web:
-    image: 192.168.0.11:5000/ucla-ssh:2022.12.9
+    image: 192.168.0.11:5000/ucla-ssh:latest
     build: .
     ports:
       - "5006:5000"
@@ -52,3 +52,9 @@ services:
       - "8443:8443"
     volumes:
       - /nfs/code-server8443:/config
+  registry:
+    image: linuxserver/code-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - /nfs/registry:/var/lib/registry

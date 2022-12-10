@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   web:
-    image: 192.168.0.11:5000/ucla-ssh:latest
+    image: 192.168.0.11:5000/ucla-ssh:2022.12.9
     build: .
     ports:
       - "5006:5000"

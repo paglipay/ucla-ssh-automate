@@ -43,7 +43,7 @@ services:
     restart: unless-stopped
     privileged: true
   code-server8443:
-    image: linuxserver/code-server
+    image: 192.168.0.11:5000/code-server
     environment:
       - PROXY_DOMAIN=corp.paglipay.info
       - PASSWORD=P@55w0rd
@@ -53,8 +53,14 @@ services:
     volumes:
       - /nfs/code-server8443:/config
   registry:
-    image: linuxserver/code-server
+    image: registry:2
     ports:
-      - "5000:5000"
+      - "5001:5000"
     volumes:
       - /nfs/registry:/var/lib/registry
+  guac:
+    image: oznu/guacamole
+    ports:
+      - "8082:8080"
+    volumes:
+      - /nfs/guacamole:/config

@@ -1,47 +1,48 @@
 version: "3.9"
 
 services:
-  web:
-    image: 192.168.0.11:5000/ucla-ssh:latest
-    build: .
-    ports:
-      - "5006:5000"
-  openssh-server:
-    image: lscr.io/linuxserver/openssh-server:latest
-    hostname: openssh-server #optional
-    environment:
-      - PUID=1000
-      - PGID=1000
-      # - TZ=Europe/London
-      # - PUBLIC_KEY=yourpublickey #optional
-      # - PUBLIC_KEY_FILE=/path/to/file #optional
-      # - PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys #optional
-      # - PUBLIC_KEY_URL=https://github.com/username.keys #optional
-      - SUDO_ACCESS=true #optional
-      - PASSWORD_ACCESS=true #optional
-      - USER_PASSWORD=vagrant #optional
-      # - USER_PASSWORD_FILE=/path/to/file #optional
-      - USER_NAME=vagrant #optional
-    # volumes:
-    #   - /path/to/appdata/config:/config
-    ports:
-      - 2222:2222
-    restart: unless-stopped
-  webtop:
-    image: lscr.io/linuxserver/webtop:ubuntu-mate
-    security_opt:
-      - seccomp:unconfined #optional
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - /nfs/ubuntu-mate:/config
-    ports:
-      - 3003:3000
-    shm_size: "2gb" #optional
-    restart: unless-stopped
-    privileged: true
+  # web:
+  #   image: 192.168.0.11:5000/ucla-ssh:latest
+  #   build: .
+  #   ports:
+  #     - "5006:5000"
+  # openssh-server:
+  #   image: lscr.io/linuxserver/openssh-server:latest
+  #   hostname: openssh-server #optional
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     # - TZ=Europe/London
+  #     # - PUBLIC_KEY=yourpublickey #optional
+  #     # - PUBLIC_KEY_FILE=/path/to/file #optional
+  #     # - PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys #optional
+  #     # - PUBLIC_KEY_URL=https://github.com/username.keys #optional
+  #     - SUDO_ACCESS=true #optional
+  #     - PASSWORD_ACCESS=true #optional
+  #     - USER_PASSWORD=vagrant #optional
+  #     # - USER_PASSWORD_FILE=/path/to/file #optional
+  #     - USER_NAME=vagrant #optional
+  #   # volumes:
+  #   #   - /path/to/appdata/config:/config
+  #   ports:
+  #     - 2222:2222
+  #   restart: unless-stopped
+  # webtop:
+  #   image: lscr.io/linuxserver/webtop:ubuntu-mate
+  #   security_opt:
+  #     - seccomp:unconfined #optional
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/London
+  #   volumes:
+  #     - /nfs/ubuntu-mate:/config
+  #   ports:
+  #     - 3003:3000
+  #   shm_size: "2gb" #optional
+  #   restart: unless-stopped
+  #   privileged: true
+
   code-server8443:
     image: 192.168.0.11:5000/code-server
     environment:
@@ -52,23 +53,78 @@ services:
       - "8443:8443"
     volumes:
       - /nfs/code-server8443:/config
-  registry:
-    image: registry:2
-    ports:
-      - "5001:5000"
-    volumes:
-      - /nfs/registry:/var/lib/registry
-  guac:
-    image: oznu/guacamole
-    ports:
-      - "8082:8080"
-    volumes:
-      - /nfs/guacamole:/config
+  # registry:
+  #   image: registry:2
+  #   ports:
+  #     - "5001:5000"
+  #   volumes:
+  #     - /nfs/registry:/var/lib/registry
+  # guac:
+  #   image: oznu/guacamole
+  #   ports:
+  #     - "8082:8080"
+  #   volumes:
+  #     - /nfs/guacamole:/config
   nginx-proxy-manager:
-    image: jlesage/nginx-proxy-manager
+    image: 'jc21/nginx-proxy-manager:latest'
     ports:
-      - "8181:8181"
+      - '80:80'
+      - '81:81'
+      - '443:443'
+      # - "8181:81"
       # - "8080:8080"
-      - "4443:4443"
+      # - "4443:443"
+    environment:
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
     volumes:
-      - "/nfs/nginx-proxy-manager:/config:rw"
+      - /nfs/nginx-proxy-manager/data:/data
+      - /nfs/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'npm'
+      MYSQL_PASSWORD: 'npm'
+    volumes:
+      - /nfs/nginx-proxy-manager/data/mysql:/var/lib/mysql
+
+  # nginx-proxy-manager:
+  #   image: jlesage/nginx-proxy-manager
+  #   ports:
+  #     - "8181:8181"
+  #     # - "8080:8080"
+  #     - "4443:4443"
+  #   volumes:
+  #     - "/nfs/nginx-proxy-manager:/config:rw"
+
+# version: '3'
+# services:
+#   app:
+#     image: 'jc21/nginx-proxy-manager:latest'
+#     ports:
+#       - '80:80'
+#       - '81:81'
+#       - '443:443'
+#     environment:
+#       DB_MYSQL_HOST: "db"
+#       DB_MYSQL_PORT: 3306
+#       DB_MYSQL_USER: "npm"
+#       DB_MYSQL_PASSWORD: "npm"
+#       DB_MYSQL_NAME: "npm"
+#     volumes:
+#       - ./data:/data
+#       - ./letsencrypt:/etc/letsencrypt
+#   db:
+#     image: 'jc21/mariadb-aria:latest'
+#     environment:
+#       MYSQL_ROOT_PASSWORD: 'npm'
+#       MYSQL_DATABASE: 'npm'
+#       MYSQL_USER: 'npm'
+#       MYSQL_PASSWORD: 'npm'
+#     volumes:
+#       - ./data/mysql:/var/lib/mysql

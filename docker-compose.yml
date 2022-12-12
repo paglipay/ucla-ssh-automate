@@ -65,31 +65,31 @@ services:
   #     - "8082:8080"
   #   volumes:
   #     - /nfs/guacamole:/config
-  nginx-proxy-manager:
-    image: 'jc21/nginx-proxy-manager:latest'
-    ports:
-      - '80:80'
-      - '81:81'
-      - '443:443'
-      # - "8181:81"
-      # - "8080:8080"
-      # - "4443:443"
-    environment:
-      DB_MYSQL_HOST: "db"
-      DB_MYSQL_PORT: 3306
-      DB_MYSQL_USER: "npm"
-      DB_MYSQL_PASSWORD: "npm"
-      DB_MYSQL_NAME: "npm"
-    volumes:
-      - /nfs/nginx-proxy-manager/data:/data
-      - /nfs/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
-  db:
-    image: 'jc21/mariadb-aria:latest'
-    environment:
-      MYSQL_ROOT_PASSWORD: 'npm'
-      MYSQL_DATABASE: 'npm'
-      MYSQL_USER: 'npm'
-      MYSQL_PASSWORD: 'npm'
-    volumes:
-      - /nfs/nginx-proxy-manager/data/mysql:/var/lib/mysql
+  # nginx-proxy-manager:
+  #   image: 'jc21/nginx-proxy-manager:latest'
+  #   ports:
+  #     - '80:80'
+  #     - '81:81'
+  #     - '443:443'
+  #     # - "8181:81"
+  #     # - "8080:8080"
+  #     # - "4443:443"
+  #   environment:
+  #     DB_MYSQL_HOST: "db"
+  #     DB_MYSQL_PORT: 3306
+  #     DB_MYSQL_USER: "npm"
+  #     DB_MYSQL_PASSWORD: "npm"
+  #     DB_MYSQL_NAME: "npm"
+  #   volumes:
+  #     - /nfs/nginx-proxy-manager/data:/data
+  #     - /nfs/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+  # db:
+  #   image: 'jc21/mariadb-aria:latest'
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 'npm'
+  #     MYSQL_DATABASE: 'npm'
+  #     MYSQL_USER: 'npm'
+  #     MYSQL_PASSWORD: 'npm'
+  #   volumes:
+  #     - /nfs/nginx-proxy-manager/data/mysql:/var/lib/mysql
 

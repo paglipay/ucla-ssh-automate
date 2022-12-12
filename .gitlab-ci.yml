@@ -1,6 +1,6 @@
 stages:
   - test
-  - build
+  # - build
 
 test:
   tags:
@@ -39,29 +39,29 @@ test:
       - python3 -m unittest
 
 
-build:
-  tags:
-    - runner-tag
-  stage: build
-  image: python:latest
-  # before_script:
-  #   - docker login -u paglipay -p $CI_REGISTRY_PASSWORD  
-  # before_script:
-  #   - git remote set-url origin https://root:S8Aw7r2nQWKLxbxPR-Ar@corp.paglipay.info/root/feedback-loop
-  #   - git config --global user.email 'paglipay@gmail.com'
-  #   - git config --global user.name 'paglipay'
-  script: 
-    - echo "Start building App"
-    - pwd
-    - ls -la
-    # - git checkout -B branch
-    # do the file changes here
-    - echo "running python script"
-    - python3 app.py
-    # - git checkout master
-    # - git push origin master
-    # - touch branch.txt
-    # - echo 'hi' >> branch.txt
-    # - git add -A
-    # - git commit -m '[skip ci] commit from CI runner'
-    # - git push --follow-tags origin branch
+# build:
+#   tags:
+#     - runner-tag
+#   stage: build
+#   image: python:latest
+#   # before_script:
+#   #   - docker login -u paglipay -p $CI_REGISTRY_PASSWORD  
+#   # before_script:
+#   #   - git remote set-url origin https://root:S8Aw7r2nQWKLxbxPR-Ar@corp.paglipay.info/root/feedback-loop
+#   #   - git config --global user.email 'paglipay@gmail.com'
+#   #   - git config --global user.name 'paglipay'
+#   script: 
+#     - echo "Start building App"
+#     - pwd
+#     - ls -la
+#     # - git checkout -B branch
+#     # do the file changes here
+#     - echo "running python script"
+#     - python3 app.py
+#     # - git checkout master
+#     # - git push origin master
+#     # - touch branch.txt
+#     # - echo 'hi' >> branch.txt
+#     # - git add -A
+#     # - git commit -m '[skip ci] commit from CI runner'
+#     # - git push --follow-tags origin branch

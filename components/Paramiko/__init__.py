@@ -110,16 +110,27 @@ class Paramiko:
             print('current_output: ')
             print(self.data[self.name][-1])
             
-            if "not'" in str_config:
-                str_config = str_config.replace("not'","")
-                if str_config in self.data[self.name][-1]:
+            if "checknot'" in str_config:
+                str_config = str_config.replace("checknot'","")
+                if str_config in ''.join(self.data[self.name][self.start_line:]) :
                     bol_config = False
                 else:
                     bol_config = True
+            elif "not'" in str_config:
+                str_config = str_config.replace("not'","")
+                if str_config in ''.join(self.data[self.name][self.start_line:]) :
+                    bol_config = False
+                else:
+                    bol_config = True
+                self.start_line = len(self.data[self.name]) 
+            elif "check'" in str_config:
+                str_config = str_config.replace("check'","")
+                if str_config in ''.join(self.data[self.name][self.start_line:]) :
+                    bol_config = True  
             else:
-                if str_config in self.data[self.name][-1] :
+                if str_config in ''.join(self.data[self.name][self.start_line:]) :
                     bol_config = True            
-                    self.start_line = len(self.data[self.name]) 
+                self.start_line = len(self.data[self.name]) 
 
         return bol_config
 
@@ -160,6 +171,7 @@ class Paramiko:
                 break
         
         # send_rec["recv"] = self.data[self.name][-1].split('\n')[-1]
-        send_rec["recv"] = self.data[self.name][-1]
+        # send_rec["recv"] = self.data[self.name][-1]
+        send_rec["recv"] = self.data[self.name][self.start_line:]
         self.data['sending'].append(send_rec)
         return send_rec["recv"]

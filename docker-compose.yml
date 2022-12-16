@@ -27,32 +27,32 @@ services:
     ports:
       - 2222:2222
     restart: unless-stopped
-  webtop:
-    image: lscr.io/linuxserver/webtop:ubuntu-mate
-    security_opt:
-      - seccomp:unconfined #optional
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - /nfs/ubuntu-mate:/config
-    ports:
-      - 3003:3000
-    shm_size: "2gb" #optional
-    restart: unless-stopped
-    privileged: true
+  # webtop:
+  #   image: lscr.io/linuxserver/webtop:ubuntu-mate
+  #   security_opt:
+  #     - seccomp:unconfined #optional
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/London
+  #   volumes:
+  #     - /nfs/ubuntu-mate:/config
+  #   ports:
+  #     - 3003:3000
+  #   shm_size: "2gb" #optional
+  #   restart: unless-stopped
+  #   privileged: true
 
-  code-server8443:
-    image: 192.168.0.11:5000/code-server
-    environment:
-      - PROXY_DOMAIN=corp.paglipay.info
-      - PASSWORD=P@55w0rd
-      - SUDO_PASSWORD=P@55w0rd
-    ports:
-      - "8443:8443"
-    volumes:
-      - /nfs/code-server8443:/config
+  # code-server8443:
+  #   image: 192.168.0.11:5000/code-server
+  #   environment:
+  #     - PROXY_DOMAIN=corp.paglipay.info
+  #     - PASSWORD=P@55w0rd
+  #     - SUDO_PASSWORD=P@55w0rd
+  #   ports:
+  #     - "8443:8443"
+  #   volumes:
+  #     - /nfs/code-server8443:/config
   # registry:
   #   image: registry:2
   #   ports:

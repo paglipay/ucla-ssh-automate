@@ -122,7 +122,7 @@ class Paramiko:
                     bol_config = False
                 else:
                     bol_config = True
-                self.start_line = len(self.data[self.name])  + 1
+                self.start_line = len(self.data[self.name]) 
             elif "check'" in str_config:
                 str_config = str_config.replace("check'","")
                 if str_config in ''.join(self.data[self.name][self.start_line:]) :
@@ -130,7 +130,7 @@ class Paramiko:
             else:
                 if str_config in ''.join(self.data[self.name][self.start_line:]) :
                     bol_config = True            
-                self.start_line = len(self.data[self.name]) + 1
+                self.start_line = len(self.data[self.name]) 
 
         return bol_config
 

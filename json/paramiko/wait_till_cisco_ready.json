@@ -1,0 +1,23 @@
+[
+    {
+        "wait": 10
+    },
+    {"":""},
+    {
+        "checknot'Switch>": [
+            {
+                "True": "./json/paramiko/wait_till_cisco_ready.json"
+            }
+        ]
+    },
+    {
+        "Switch>": [
+            {
+                "True": "enable"
+            }
+        ]
+    },
+    {
+        "wait": 0
+    }
+]

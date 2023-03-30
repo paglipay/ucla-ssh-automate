@@ -2,10 +2,12 @@ version: "3.9"
 
 services:
   web:
-    image: 192.168.0.11:5000/ucla-ssh:latest
+    image: 192.168.0.11:5000/uclasshautomate:arm
     build: .
     ports:
       - "5006:5000"
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
   # openssh-server:
   #   image: lscr.io/linuxserver/openssh-server:latest
   #   hostname: openssh-server #optional

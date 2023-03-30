@@ -1,0 +1,87 @@
+[
+  {
+    "False": {
+      "mark_left_off": "True"
+    }
+  },
+  {
+    "wait": 5
+  },
+  {
+    "not'Switch": {
+      "": [
+        "!HAS CONFIG! WOULD YOU LIKE TO DELETE?",
+        {
+          "True": {
+            "wait": 3
+          }
+        },
+        {
+          "True": {
+            "not'Switch": [
+              "!WILL DELETE?",
+              {
+                "True": {
+                  "wait": 5
+                }
+              },
+              {
+                "True": {
+                  "#": "delete flash:vlan.dat"
+                }
+              },
+              {
+                "True": {
+                  "Delete filename [vlan.dat]?": "\r"
+                }
+              },
+              {
+                "True": {
+                  "Delete flash:/vlan.dat? [confirm]": "\r"
+                }
+              },
+              {
+                "True": {
+                  "#": "write erase"
+                }
+              },
+              {
+                "True": {
+                  "[confirm]": ""
+                }
+              },
+              {
+                "True": {
+                  "#": "reload"
+                }
+              },
+              {
+                "True": {
+                  "System configuration has been modified. Save?": "no"
+                }
+              },
+              {
+                "True": {
+                  "Proceed with reload? [confirm]": [
+                    {
+                      "wait": 120
+                    },
+                    "",
+                    {
+                      "wait": 5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "False": {
+      "mark_left_off": "False"
+    }
+  }
+]

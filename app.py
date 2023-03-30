@@ -11,6 +11,11 @@ import uuid
 import sys
 import socket
 import sys
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
 print(sys.getrecursionlimit())
 sys.setrecursionlimit(10**6)
 print(sys.getrecursionlimit())
@@ -19,7 +24,7 @@ flask_thread = []
 flask_process_data = {}
 flask_process = {}
 import_obj_instance_hash = {}
-app = Flask(__name__)
+
 
 @app.route('/')
 def hello_world():

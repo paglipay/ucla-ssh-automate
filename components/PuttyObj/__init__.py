@@ -5,7 +5,7 @@
 import time
 import serial
 # import pyautogui
-import pyperclip
+# import pyperclip
 
 class PuttyObj:
     def __init__(self, int_name, data={}):

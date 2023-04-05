@@ -1,0 +1,218 @@
+[
+  {
+    "False": {
+      "allow_build": "True"
+    }
+  },
+  {
+    "": "terminal length 0"
+  },
+  {
+    "True": {
+      "#": [
+        {
+          "wait": 5
+        },
+        {
+          "": "sh usbflash0: | s cisco"
+        }
+      ]
+    }
+  },
+  {
+    "True": {
+      "cisco/9300/cat9k_iosxe.17.06.03.SPA.bin": [
+        {
+          "wait": 15
+        },
+        "show version",
+        {
+          "True": {
+            "checknot'17.06.03": [
+              {
+                "True": {
+                  "#": "dir"
+                }
+              },
+              {
+                "True": {
+                  "checknot'cat9k_iosxe.17.06.03.SPA.bin": [
+                    {
+                      "True": {
+                        "#": "copy usbflash0:/cisco/9300/cat9k_iosxe.17.06.03.SPA.bin flash:\n"
+                      }
+                    },
+                    {
+                      "True": {
+                        "": ""
+                      }
+                    },
+                    {
+                      "True": {
+                        "CCCCCCCCCCC": [
+                          {
+                            "wait": 240
+                          },
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "True": {
+                        "#": [
+                          {
+                            "wait": 15
+                          },
+                          "dir"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "True": {
+                  "cat9k_iosxe.17.06.03.SPA.bin": [
+                    {
+                      "wait": 15
+                    },
+                    {
+                      "True": ["install add file flash:cat9k_iosxe.17.06.03.SPA.bin activate commit", "y"]
+                    }
+                  ]
+                }
+              },
+              {
+                "True": {
+                  "install remove inactive": [
+                    {
+                      "wait": 30
+                    },
+                    "install remove inactive",
+                    "",
+                    {
+                      "[y/n]": [
+                        {
+                          "wait": 5
+                        },
+                        "y",
+                        {
+                          "True": "json/cisco_actions/upgrade_ios_9300_1763.json"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "True": [
+                  {
+                    "on all members": [
+                      "",
+                      {
+                        "wait": 120
+                      },
+                      ""
+                    ]
+                  },
+                  {
+                    "True": {
+                      "[y/n/q]": [
+                        {
+                          "wait": 60
+                        },
+                        "y"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "True": [
+                  {
+                    "[y/n]": [
+                      {
+                        "wait": 300
+                      },
+                      "y",
+                      {
+                        "True": "json/cisco_actions/enable_command.json"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "True": {
+      "#": [
+        {
+          "wait": 5
+        },
+        "show version"
+      ]
+    }
+  },
+  {
+    "True": {
+      "Version 16.6.5": [
+        "dir",
+        {
+          "True": {
+            "16.06.05.SPA": [
+              {
+                "wait": 120
+              },
+              "request platform software package clean switch all"
+            ]
+          }
+        },
+        {
+          "True": {
+            "Do you want to proceed? [y/n]": [
+              {
+                "wait": 15
+              },
+              "y",
+              {
+                "wait": 3
+              },
+              "dir"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "add_cmd_here": ""
+  },
+  {
+    "True": {
+      "allow_build": "False"
+    }
+  },
+  {
+    "True": {
+      "": "\n"
+    }
+  },
+  {
+    "True": [
+      {
+        "prompt": "Go Again?"
+      },
+      "json/cisco_actions/upgrade_ios_9300_1763.json"
+    ]
+  },
+  {
+    "False": {
+      "mark_left_off": "False"
+    }
+  }
+]

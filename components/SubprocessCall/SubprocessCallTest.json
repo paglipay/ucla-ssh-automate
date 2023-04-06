@@ -1,0 +1,67 @@
+[
+  {
+    "import": "Key"
+  },
+  {
+    "True": [
+      {
+        "import": "SubprocessCall"
+      },
+      {
+        "open": "ping 8.8.8.8"
+      }
+    ]
+  },
+  {
+    "False": [
+      {
+        "import": "SubprocessCall"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/access pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/mns-rtr pull origin master"
+      },
+      {
+        "False": "git -C C:/Users/paglipay/Downloads/border pull origin master"
+      },
+      {
+        "False": "git -C C:/Users/paglipay/Downloads/core pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/distribution pull origin master"
+      },
+      {
+        "False": "git -C C:/Users/paglipay/Downloads/ssc pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/voice pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/wifi pull origin master"
+      },
+      {
+        "False": "git -C C:/Users/paglipay/Downloads/arts pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/mns pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/edge pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/oob pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/remote-access pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/service pull origin master"
+      },
+      {
+        "open": "git -C C:/Users/paglipay/Downloads/lab pull origin master"
+      }
+    ]
+  }
+]

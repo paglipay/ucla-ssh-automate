@@ -9,6 +9,8 @@ services:
     privileged: true
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
   # openssh-server:
   #   image: lscr.io/linuxserver/openssh-server:latest
   #   hostname: openssh-server #optional

@@ -1,6 +1,15 @@
 FROM arm64v8/python:3
 
 # RUN apt-get update && apt-get install -y zbar-tools ffmpeg libsm6 libxext6
+
+RUN apt-get update && \
+    apt-get -qy full-upgrade && \
+    apt-get install -qy screen && \
+    apt-get install -qy curl && \
+    apt-get install -qy curl && \
+    curl -sSL https://get.docker.com/ | sh
+
+    
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 

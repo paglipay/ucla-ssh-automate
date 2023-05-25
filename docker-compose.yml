@@ -2,16 +2,16 @@ version: "3.9"
 
 services:
   web:
-    image: 192.168.0.11:5000/uclasshautomate:arm
+    image: 192.168.0.11:5000/uclasshautomate:latest
     build: .
     ports:
       - "5001:5000"
     privileged: true
     #devices:
     #  - "/dev/ttyUSB0:/dev/ttyUSB0"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/dev:/dev"
+    # volumes:
+    #   - "/var/run/docker.sock:/var/run/docker.sock"
+    #   - "/dev:/dev"
 
   # openssh-server:
   #   image: lscr.io/linuxserver/openssh-server:latest

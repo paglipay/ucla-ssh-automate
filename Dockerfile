@@ -1,4 +1,5 @@
-FROM python:3.10.9
+# FROM python:3.10.9
+FROM python
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

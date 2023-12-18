@@ -1,0 +1,16 @@
+[
+    {
+      "wait": 5
+    },
+    "",
+    {
+      "not'rancid@": [
+        {
+          "True": "json/paramiko/wait_till_rancid.json"
+        }
+      ]
+    },
+    {
+      "wait": 0
+    }
+  ]

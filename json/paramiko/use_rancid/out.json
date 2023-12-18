@@ -1,0 +1,111 @@
+[
+    {
+      "import": "ParamikoObj"
+    },
+    {
+      "True": [
+        {
+          "json/paramiko/check_paramiko.json": [
+            {
+              "open": {
+                "ip": "192.168.2.81",
+                "username": "vagrant",
+                "password": "vagrant"
+              }
+            }
+          ]
+        },
+        [
+          {
+            "capture_to_file": "capture//monitoring_terminals//rancid_configs_replicate_output.txt"
+          },
+          {
+            "capture": "False"
+          },
+          ""
+        ],
+        {
+          "wait": 5
+        },
+        {
+          "doc": [
+            {
+              "wait": 11
+            },
+            "ssh paglipay@drawbridge.noc.ucla.edu",
+            {
+              "wait": 5
+            }
+          ]
+        },
+        {
+          "True": [
+            {
+              "True": [
+                {
+                  "(yes/no)": "yes"
+                }
+              ]
+            },
+            {
+              "log": "paglipay"
+            },
+            "json/paramiko/passcode.json",
+            {
+              "gw-": [
+                "ssh cfg-asm1.noc.ucla.edu",
+                {
+                  "(yes/no)": "yes"
+                },
+                {
+                  "cfg-": [
+                    "whoami",
+                    {
+                      "paglipay": [
+                        "pwd",
+                        {
+                          "/home/paglipay": [
+                            {
+                              "True": [
+                                "sudo -u rancid -i",
+                                "json/paramiko/passcode.json",
+                                {
+                                  "wait": 5
+                                },
+  
+                                {"True":"json/paramiko/use_rancid/errdisable_recovery_interval_3600/out.json"},
+                                {"False":"json/paramiko/use_rancid/snmp_contact/out.json"},
+                                "exit"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "True": "exit"
+                }
+              ]
+            },
+            {
+              "True": "exit"
+            }
+          ]
+        },
+        [
+          {
+            "capture_to_file": "capture//monitoring_terminals//rancid_configs_replicate_output.txt"
+          },
+          {
+            "capture": "False"
+          },
+          "",
+          {
+            "doc": "exit"
+          }
+        ]
+      ]
+    }
+  ]

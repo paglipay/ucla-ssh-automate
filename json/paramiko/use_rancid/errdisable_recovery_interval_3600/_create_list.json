@@ -1,0 +1,9 @@
+[
+    {"import":"JinjaObj"},
+    {"True": [
+       {"list_dics":"json/paramiko/use_rancid/errdisable_recovery_interval_3600/devices.txt"},
+       {"open":"json/paramiko/use_rancid/errdisable_recovery_interval_3600/_accepts_list.json"},
+       {"save_as":"json/paramiko/use_rancid/errdisable_recovery_interval_3600/out.json"}
+    ]}
+  ]
+  

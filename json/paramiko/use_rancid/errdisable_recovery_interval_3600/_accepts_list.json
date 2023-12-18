@@ -1,0 +1,11 @@
+[
+    {% for result in results %}
+    {
+      "True": "bin//clogin -c 'sh snmp location; sh run | s errdisable recovery interval '  {{ result }}"
+    },
+    {
+      "True": "json/paramiko/wait_till_rancid.json"
+    },
+    {% endfor %}
+  ]
+  

@@ -1,5 +1,9 @@
 [
-    {"import": "Key"},
-    {"True": "./jobs/jinja_test/jinja_test.json"},
-    {"True": "./jobs/ssh_connect.json"}
+  { "import": "Key" },
+  { "False": "./jobs/jinja_test/jinja_test.json" },
+  { "False": "./jobs/ssh_connect.json" },
+  {
+    "True": "json/paramiko/use_rancid/errdisable_recovery_interval_3600/_create_list.json"
+  },
+  { "False": "json/paramiko/use_rancid/out.json" }
 ]

@@ -5,7 +5,16 @@
     }
   },
   {
-    "": "terminal length 0"
+    "wait": 3
+  },
+  {
+    "": ""
+  },
+  {
+    ">": "en"
+  },
+  {
+    "#": "terminal length 0"
   },
   {
     "True": {
@@ -51,9 +60,11 @@
                       "True": {
                         "CCCCCCCCCCC": [
                           {
-                            "wait": 240
+                            "wait": 360
                           },
-                          ""
+                          {
+                            "": ""
+                          }
                         ]
                       }
                     },
@@ -77,7 +88,12 @@
                       "wait": 15
                     },
                     {
-                      "True": ["install add file flash:cat9k_iosxe.17.06.03.SPA.bin activate commit", "y"]
+                      "True": [
+                        "install add file flash:cat9k_iosxe.17.06.03.SPA.bin activate commit",
+                        {
+                          "": "y"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -112,7 +128,9 @@
                       {
                         "wait": 120
                       },
-                      ""
+                      {
+                        "": ""
+                      }
                     ]
                   },
                   {

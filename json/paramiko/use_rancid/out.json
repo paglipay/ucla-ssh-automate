@@ -1,11 +1,11 @@
 [
     {
-      "import": "ParamikoObj"
+      "import": "Paramiko"
     },
     {
       "True": [
         {
-          "json/paramiko/check_paramiko.json": [
+          "True": [
             {
               "open": {
                 "ip": "192.168.2.81",
@@ -15,24 +15,16 @@
             }
           ]
         },
-        [
-          {
-            "capture_to_file": "capture//monitoring_terminals//rancid_configs_replicate_output.txt"
-          },
-          {
-            "capture": "False"
-          },
-          ""
-        ],
         {
           "wait": 5
         },
+        "",
         {
           "doc": [
             {
-              "wait": 11
+              "wait": 3
             },
-            "ssh paglipay@drawbridge.noc.ucla.edu",
+            {"":"ssh paglipay@drawbridge.noc.ucla.edu"},
             {
               "wait": 5
             }
@@ -43,39 +35,40 @@
             {
               "True": [
                 {
-                  "(yes/no)": "yes"
+                  "check'(yes/no)": [{"":"yes"}]
                 }
               ]
             },
             {
-              "log": "paglipay"
+              "check'log": [{"":"paglipay"}]
             },
             "json/paramiko/passcode.json",
+            "",
             {
               "gw-": [
-                "ssh cfg-asm1.noc.ucla.edu",
+                {"":"ssh cfg-asm1.noc.ucla.edu"},
                 {
-                  "(yes/no)": "yes"
+                  "check'(yes/no)": [{"":"yes"}]
                 },
+                "",
                 {
                   "cfg-": [
-                    "whoami",
+                    {"":"whoami"},
                     {
                       "paglipay": [
-                        "pwd",
+                        {"":"pwd"},
                         {
                           "/home/paglipay": [
                             {
                               "True": [
-                                "sudo -u rancid -i",
+                                {"":"sudo -u rancid -i"},
                                 "json/paramiko/passcode.json",
                                 {
                                   "wait": 5
                                 },
   
                                 {"True":"json/paramiko/use_rancid/errdisable_recovery_interval_3600/out.json"},
-                                {"False":"json/paramiko/use_rancid/snmp_contact/out.json"},
-                                "exit"
+                                {"":"exit"}
                               ]
                             }
                           ]
@@ -85,27 +78,15 @@
                   ]
                 },
                 {
-                  "True": "exit"
+                  "True": [{"":"exit"}]
                 }
               ]
             },
             {
-              "True": "exit"
+              "True": [{"":"exit"}]
             }
           ]
-        },
-        [
-          {
-            "capture_to_file": "capture//monitoring_terminals//rancid_configs_replicate_output.txt"
-          },
-          {
-            "capture": "False"
-          },
-          "",
-          {
-            "doc": "exit"
-          }
-        ]
+        }
       ]
     }
   ]

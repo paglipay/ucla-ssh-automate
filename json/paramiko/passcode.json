@@ -1,0 +1,25 @@
+[
+    {
+      "check'PASSCODE": [
+        {
+          "wait": 5
+        },
+        {
+          "prompt": "PASSCODE"
+        },
+        {
+          "wait": 3
+        },
+        {
+          "not'PASSCODE Accepted": [
+            {
+              "PASSCODE": "json/paramiko/passcode.json"
+            }
+          ]
+        },
+        {
+          "check'PASSCODE Accepted": ""
+        }
+      ]
+    }
+  ]

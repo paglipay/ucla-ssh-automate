@@ -5,5 +5,5 @@
   {
     "True": "json/paramiko/use_rancid/errdisable_recovery_interval_3600/_create_list.json"
   },
-  { "False": "json/paramiko/use_rancid/out.json" }
+  { "True": "json/paramiko/use_rancid/out.json" }
 ]
